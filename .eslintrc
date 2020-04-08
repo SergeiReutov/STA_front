@@ -1,9 +1,11 @@
 {
   "env": {
     "browser": true,
-    "es6": true
+    "es6": true,
+    "jest": true
   },
   "extends": [
+    "react-app",
     "eslint:recommended",
     "plugin:react/recommended"
   ],
@@ -25,7 +27,6 @@
     "sourceType": "module"
   },
   "plugins": ["react"],
-  "ignorePatterns": ["*.test.js", "node_modules/"],
   "rules": {
     "quotes": ["error", "single"],
     "max-len": ["error", { "code": 120, "comments": 150 }],

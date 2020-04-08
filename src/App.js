@@ -10,7 +10,7 @@ import './App.scss';
 
 function App() {
   return (
-    <div className="App">
+    <div data-testid="mainApp" className="App">
       <Router>
         <Switch>
           <Route exact path="/">
