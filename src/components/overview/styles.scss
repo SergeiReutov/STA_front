@@ -1,0 +1,14 @@
+main.overview {
+  display: flex;
+  align-items: stretch;
+
+  section.chart {
+    flex: 0 0 75%;
+    border: 1px lightgray solid;
+  }
+
+  section.sidePanel.right {
+    flex: 0 1 25%;
+    border: 1px lightgray solid;
+  }
+}

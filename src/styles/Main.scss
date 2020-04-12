@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+
+  .main-app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    header {
+      height: 2.5em;
+    }
+
+    main {
+      flex-grow: 1;
+    }
+  }
+}
