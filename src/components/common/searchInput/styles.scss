@@ -1,0 +1,12 @@
+.search-input {
+  display: flex;
+  padding: 0 0.3em 0 0.5em;
+
+  .MuiInputBase-root {
+    width: 8rem;
+  }
+
+  .MuiInputBase-input {
+    padding: 0;
+  }
+}
