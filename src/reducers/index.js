@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { default as example } from './example';
+import { default as tickerSearch } from './tickerSearch';
 
 export default combineReducers({
-  example
+  tickerSearch
 });
