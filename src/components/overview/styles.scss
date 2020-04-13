@@ -1,14 +1,18 @@
+@import 'styles/Mixins';
+@import 'styles/Colors';
+
 main.overview {
   display: flex;
   align-items: stretch;
 
-  section.chart {
+  section.chartContainer {
     flex: 0 0 75%;
-    border: 1px lightgray solid;
+    position: relative;
+    @include flexCentered;
   }
 
-  section.sidePanel.right {
+  aside.sidePanel.right {
     flex: 0 1 25%;
-    border: 1px lightgray solid;
+    background-color: $gray;
   }
 }

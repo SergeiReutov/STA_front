@@ -18,7 +18,7 @@ function Header(props) {
   } = props;
 
   return (
-    <AppBar className="main-header" position="static" color="default">
+    <AppBar className="main-header" position="static">
       <Toolbar variant="dense">
         <SearchInput
           value={search}
