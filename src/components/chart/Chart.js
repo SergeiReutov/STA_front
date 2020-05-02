@@ -6,6 +6,7 @@ import { Loader, ErrorMessage, NoData } from 'components/common';
 import { clearError } from 'actions/chartData';
 import { getChartData, getIsLoading, getError } from 'selectors/chartData';
 import { voidFn } from 'utils/common';
+import CandleStickChart from './CandleBarChart';
 
 function Chart(props) {
   const {
@@ -17,7 +18,10 @@ function Chart(props) {
 
   const renderContent = () => R.isEmpty(chartData)
     ? <NoData />
-    : JSON.stringify(chartData);
+    : <CandleStickChart data={chartData.map(item => ({
+      ...item,
+      date: new Date(item.date)
+    }))} />;
 
   return (
     <Fragment>

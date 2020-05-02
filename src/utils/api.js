@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const instance = axios.create({
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
   baseURL: 'http://localhost:3001/api',
-  timeout: 3000
+  timeout: 10000
 });
 
 export const request = (method, url, data) => instance.request({ method, url, data })
