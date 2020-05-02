@@ -21,7 +21,7 @@ export default function ErrorMessage(props) {
     <Snackbar
       anchorOrigin={{
         vertical: 'top',
-        horizontal: 'center',
+        horizontal: 'center'
       }}
       open
       autoHideDuration={3000}
