@@ -1,4 +1,8 @@
+@import 'styles/Colors';
+
 header.main-header {
   justify-content: center;
   box-shadow: none;
+  background-color: $gray;
+  border-bottom: 1px solid $borderColor;
 }

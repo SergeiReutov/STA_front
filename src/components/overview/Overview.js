@@ -8,12 +8,12 @@ import './styles.scss';
 function Overview(props) {
   return (
     <main className="overview">
-      <section className="chart">
+      <section className="chartContainer">
         <Chart />
       </section>
-      <section className="sidePanel right">
+      <aside className="sidePanel right">
         <FavoriteTickers />
-      </section>
+      </aside>
     </main>
   );
 }

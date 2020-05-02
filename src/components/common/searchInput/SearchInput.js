@@ -15,7 +15,13 @@ export default function SearchInput(props) {
     onSearch = voidFn
   } = props;
 
-  const handleChange = ({ target: { value } }) => onChange(value);
+  const handleChange = ({ target: { value = '' } }) => onChange(value.toUpperCase());
+
+  const handleKeyPress = e => {
+    if (e.key === 'Enter') {
+      onSearch();
+    }
+  };
 
   return (
     <Paper className="search-input" variant="outlined">
@@ -25,6 +31,7 @@ export default function SearchInput(props) {
         value={value}
         onChange={handleChange}
         disabled={isDisabled}
+        onKeyPress={handleKeyPress}
       />
       <IconButton
         size="small"
