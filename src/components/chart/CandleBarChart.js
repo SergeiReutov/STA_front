@@ -7,10 +7,16 @@ import { XAxis, YAxis } from 'react-stockcharts/lib/axes';
 import { fitWidth } from 'react-stockcharts/lib/helper';
 import { first, last } from 'react-stockcharts/lib/utils';
 import { TrendLine } from 'react-stockcharts/lib/interactive';
+import { ChartType } from 'types/chart';
 
 class CandleStickChart extends React.Component {
   render() {
-    const { type, width, data: initialData, ratio } = this.props;
+    const { type, width, chart, ratio } = this.props;
+
+    const priceData = chart.priceData.map(item => ({
+      ...item,
+      date: new Date(item.date)
+    }));
 
     const xScaleProvider = discontinuousTimeScaleProvider.inputDateAccessor(d => d.date);
 
@@ -19,7 +25,7 @@ class CandleStickChart extends React.Component {
       xScale,
       xAccessor,
       displayXAccessor
-    } = xScaleProvider(initialData);
+    } = xScaleProvider(priceData);
 
     const xExtents = [
       xAccessor(first(data)),
@@ -46,9 +52,10 @@ class CandleStickChart extends React.Component {
           <YAxis axisAt="right" orient="right" ticks={5} />
           <CandlestickSeries />
           <TrendLine
-						enabled={false}
+            enabled={false}
+            snap={false}
 						type="RAY"
-						trends={[{ start: [0, 16], end: [505, 21], appearance: { stroke: 'green' }, type: 'XLINE' }]}
+						trends={[{ start: [0, 16], end: [254, 21], appearance: { stroke: 'green' }, type: 'XLINE' }]}
 					/>
         </Chart>
       </ChartCanvas>
@@ -58,7 +65,7 @@ class CandleStickChart extends React.Component {
 }
 
 CandleStickChart.propTypes = {
-	data: PropTypes.array.isRequired,
+	chart: ChartType.isRequired,
 	width: PropTypes.number.isRequired,
 	ratio: PropTypes.number.isRequired,
 	type: PropTypes.oneOf(['svg', 'hybrid']).isRequired

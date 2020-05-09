@@ -1,31 +1,31 @@
-import { CHART_DATA } from 'actions/ActionTypes';
+import { CHART } from 'actions/ActionTypes';
 
 export const initialState = {
-  chartData: {},
+  chart: {},
   isLoading: false,
   error: null
 };
 
-export default function chartData(state = initialState, action) {
+export default function chart(state = initialState, action) {
   switch (action.type) {
-    case CHART_DATA.FETCH.REQUEST:
+    case CHART.FETCH.REQUEST:
       return {
         ...state,
         isLoading: true
       };
-    case CHART_DATA.FETCH.SUCCESS:
+    case CHART.FETCH.SUCCESS:
       return {
         ...state,
-        chartData: action.chartData,
+        chart: action.chart,
         isLoading: false
       };
-    case CHART_DATA.FETCH.ERROR:
+    case CHART.FETCH.ERROR:
       return {
         ...state,
         isLoading: false,
         error: action.error
       };
-    case CHART_DATA.CLEAR_ERROR:
+    case CHART.CLEAR_ERROR:
       return {
         ...state,
         error: initialState.error

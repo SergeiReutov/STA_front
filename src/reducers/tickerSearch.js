@@ -1,4 +1,4 @@
-import { TICKER_SEARCH, CHART_DATA } from 'actions/ActionTypes';
+import { TICKER_SEARCH, CHART } from 'actions/ActionTypes';
 
 export const initialState = {
   search: '',
@@ -22,8 +22,8 @@ export default function tickerSearch(state = initialState, action) {
         ...state,
         isLoading: true
       };
-    case CHART_DATA.FETCH.SUCCESS:
-    case CHART_DATA.FETCH.ERROR:
+    case CHART.FETCH.SUCCESS:
+    case CHART.FETCH.ERROR:
       return {
         ...state,
         isLoading: false

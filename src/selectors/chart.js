@@ -1,6 +1,6 @@
 import * as R from 'ramda';
 
-export const getStatePart = R.prop('chartData');
+export const getStatePart = R.prop('chart');
 
 export const getIsLoading = R.compose(
   R.prop('isLoading'),
@@ -12,7 +12,7 @@ export const getError = R.compose(
   getStatePart
 );
 
-export const getChartData = R.compose(
-  R.prop('chartData'),
+export const getChart = R.compose(
+  R.prop('chart'),
   getStatePart
 );

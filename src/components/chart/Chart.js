@@ -3,25 +3,23 @@ import PropTypes from 'prop-types';
 import * as R from 'ramda';
 import { connect } from 'react-redux';
 import { Loader, ErrorMessage, NoData } from 'components/common';
-import { clearError } from 'actions/chartData';
-import { getChartData, getIsLoading, getError } from 'selectors/chartData';
+import { clearError } from 'actions/chart';
+import { getChart, getIsLoading, getError } from 'selectors/chart';
 import { voidFn } from 'utils/common';
+import { ChartType } from 'types/chart';
 import CandleStickChart from './CandleBarChart';
 
 function Chart(props) {
   const {
-    chartData = {},
+    chart = {},
     isLoading = false,
     error = null,
     clearError = voidFn
   } = props;
 
-  const renderContent = () => R.isEmpty(chartData)
+  const renderContent = () => R.isEmpty(chart)
     ? <NoData />
-    : <CandleStickChart data={chartData.map(item => ({
-      ...item,
-      date: new Date(item.date)
-    }))} />;
+    : <CandleStickChart chart={chart} />;
 
   return (
     <Fragment>
@@ -35,16 +33,14 @@ function Chart(props) {
 }
 
 Chart.propTypes = {
-  chartData: PropTypes.shape({
-    chart: PropTypes.string
-  }).isRequired,
+  chart: ChartType.isRequired,
   isLoading: PropTypes.bool.isRequired,
   error: PropTypes.string,
   clearError: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  chartData: getChartData(state),
+  chart: getChart(state),
   isLoading: getIsLoading(state),
   error: getError(state)
 });
